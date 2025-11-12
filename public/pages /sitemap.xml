@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://yourwebsite.com/index.html</loc>
+        <lastmod>2024-07-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Showcase Page -->
+    <url>
+        <loc>https://yourwebsite.com/showcase.html</loc>
+        <lastmod>2024-07-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Terms of Service Page -->
+    <url>
+        <loc>https://yourwebsite.com/terms.html</loc>
+        <lastmod>2024-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Privacy Policy Page -->
+    <url>
+        <loc>https://yourwebsite.com/privacy.html</loc>
+        <lastmod>2024-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Login Page (optional, depending on if you want search engines to index it) -->
+    <url>
+        <loc>https://yourwebsite.com/login.html</loc>
+        <lastmod>2024-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Signup Page (optional, depending on if you want search engines to index it) -->
+    <url>
+        <loc>https://yourwebsite.com/signup.html</loc>
+        <lastmod>2024-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>

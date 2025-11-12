@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags for Codernest -->
+    <title>Custom Web &amp; iOS App Development | CoderNest Digital Solution</title>
+    <meta name="description" content="Codernest Digital Solutions builds high-performance, custom web and iOS applications. We turn your vision into reality with expert development, design, and support. Get a free trial.">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RNECFWCLKP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RNECFWCLKP');
+</script>
+    <meta name="description" content="Codernest Digital Solutions builds high-performance, custom web and iOS applications. We turn your vision into reality with expert development, design, and support. Get a free trial.">
+    <meta name="keywords" content="web developer, ios developer, swiftui, react, web app, mobile app, custom software, portfolio, SaaS development, app agency, codernest, bootstrap, flexbox, grid">
+    <meta name="google-site-verification" content="H68TP1raIMf699DY3EnRGw3QF6xRwQNg6Q_aMuY0AqQ" />
+    <!-- 1. Load Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- 2. Load Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- 3. Load Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* 4. Custom Styles & Bootstrap Overrides */
+        :root {
+            --bs-primary: #8A2BE2; /* Bright Purple */
+            --bs-primary-rgb: 138, 43, 226;
+            --bs-primary-hover: #9932CC; /* Darker Purple */
+            --bs-secondary: #00C6FF; /* Bright Cyan */
+            --bs-body-font-family: 'Inter', sans-serif;
+            --bs-body-color: #e5e7eb; /* text-gray-200 */
+            --bs-body-bg: #111317; /* onyx */
+            --bs-tertiary-bg: #1a1d23; /* navy */
+            --bs-border-color: #374151; /* gray-700 */
+            --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Custom dark colors for components */
+        .bg-navy {
+            background-color: var(--bs-tertiary-bg);
+        }
+        .form-control {
+            background-color: var(--bs-tertiary-bg) !important;
+            color: var(--bs-body-color) !important;
+        }
+        .form-control:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+        }
+
+        /* Simple style for smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ensure Lucide icons are sized correctly */
+        .lucide {
+            width: 1.25em;
+            height: 1.25em;
+            display: inline-block;
+            stroke-width: 2;
+        }
+        .lucide-sm {
+            width: 1em;
+            height: 1em;
+        }
+        .check-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke-width: 3;
+        }
+        
+        /* Modern Gradient Text for Hero (Kept from previous design) */
+        .gradient-text {
+            background: linear-gradient(to right, #8A2BE2, #00C6FF, #8A2BE2);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: hero-gradient 6s linear infinite;
+        }
+
+        /* Hero Background Radial Gradient (Kept from previous design) */
+        .hero-background {
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, rgba(17, 19, 23, 0) 60%);
+            animation: hero-gradient 10s linear infinite;
+        }
+
+        /* Fade-in on scroll animation (Kept from previous design) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Glow Effect (Kept from previous design) */
+        .btn-primary-glow {
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4), 0 0 5px rgba(138, 43, 226, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary-glow:hover {
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.6), 0 0 10px rgba(138, 43, 226, 0.5);
+            background-color: var(--bs-primary-hover);
+        }
+
+        /* Featured Plan Glow (Kept from previous design) */
+        .featured-glow {
+             box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+             transform: scale(1.03); /* Bootstrap doesn't have scale util, so adding here */
+        }
+        
+        /* Glassmorphism for Bootstrap Cards */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Custom Font for "Coding" Vibe */
+        .font-monospace {
+             font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace';
+        }
+
+        /* Animation Keyframes (Kept from previous design) */
+        @keyframes hero-gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Card Hover Animation */
+        .card-hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+
+        /* Popover custom style */
+        .popover {
+            background-color: var(--bs-tertiary-bg);
+            border: 1px solid var(--bs-border-color);
+        }
+        .popover-header {
+            background-color: #111317;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="sticky-top shadow-sm" style="background-color: rgba(17, 19, 23, 0.8); backdrop-filter: blur(10px);">
+        <nav class="navbar navbar-expand-lg container" aria-label="Main Navigation">
+            <a href="/index.html" class="navbar-brand">
+                <img src="https://placehold.co/150x40/8A2BE2/FFFFFF?text=CoderNest&font=raleway" alt="CoderNest Logo" style="height: 40px;">
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i data-lucide="menu" class="lucide lucide-sm text-white"></i>
+            </button>
+            
+            <!-- Mobile & Desktop Menu -->
+            <div class="collapse navbar-collapse" id="mobile-menu">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a href="#services" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_services">Services</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_about">About Us</a></li>
+                    <li class="nav-item"><a href="#showcase" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_showcase">Showcase</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_pricing">Pricing</a></li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="#" id="timezone-widget" class="nav-link text-white-50">
+                            <i data-lucide="clock" class="lucide-sm"></i>
+                            <span id="time-display" style="margin-left: 5px; font-size: 0.9rem;">--:--</span>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="#" id="weather-widget" class="nav-link text-white-50" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover" title="Your Temperature" data-bs-content="Loading...">
+                            <i data-lucide="thermometer" class="lucide-sm"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i data-lucide="languages" class="lucide-sm"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('bn')">বাংলা</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#trial" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_free_trial">Free Trial</a></li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                        <a href="/login.html" class="btn btn-outline-primary rounded-pill fw-medium px-4 py-2" data-lang="nav_login">Login</a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                        <a href="#contact" class="btn btn-primary rounded-pill fw-medium px-4 py-2 btn-primary-glow" data-lang="nav_get_quote">
+                            Get a Quote
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-background container text-center py-5">
+        <div class="py-5">
+            <h1 class="display-3 fw-bolder text-white mb-3 fade-in" data-lang="hero_title_1">
+                We Build Exceptional <br class="d-none d-md-block">
+                <span class="gradient-text">Web & iOS Applications</span>
+            </h1>
+            <p class="fs-5 text-white-50 col-lg-8 mx-auto mb-4 fade-in" style="transition-delay: 150ms;" data-lang="hero_subtitle">
+                From sleek, responsive websites to powerful, native iOS apps, Codernest turns your vision into a high-performance reality.
+            </p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center fade-in" style="transition-delay: 300ms;">
+                <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-semibold fs-6 btn-primary-glow" data-lang="hero_button_start">
+                    Start Your Project
+                </a>
+                <a href="#trial" class="btn btn-outline-secondary btn-lg rounded-pill px-5 py-3 fw-semibold fs-6 bg-navy" data-lang="hero_button_trial">
+                    Request a Free Trial
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Services Section (Bootstrap Grid & Glassmorphism) -->
+    <section id="services" class="py-5 bg-navy">
+        <div class="container py-4">
+            <h2 class="display-5 fw-bold text-center text-white mb-3 fade-in" data-lang="services_title">Our Core Services</h2>
+            <p class="text-center text-white-50 col-lg-7 mx-auto mb-5 fade-in" style="transition-delay: 150ms;" data-lang="services_subtitle">
+                We provide end-to-end solutions to launch your digital product successfully.
+            </p>
+            <!-- Bootstrap Grid System -->
+            <div class="row g-4 row-cols-1 row-cols-md-3">
+                <!-- Service 1: Web Development -->
+                <div class="col fade-in">
+                    <div class="card card-glass h-100 p-4 p-lg-5 rounded-4 border-0 shadow-lg">
+                        <i data-lucide="layout-grid" class="h-10 w-10 text-primary mb-3" style="width: 2.5rem; height: 2.5rem;"></i>
+                        <h3 class="fs-4 fw-semibold text-white mb-3" data-lang="service_1_title">Web Development</h3>
+                        <p class="text-white-50" data-lang="service_1_desc">
+                            Blazing-fast, fully responsive websites built with modern frameworks like React, Vue, and Svelte.
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 2: iOS Development -->
+                <div class="col fade-in" style="transition-delay: 150ms;">
+                    <div class="card card-glass h-100 p-4 p-lg-5 rounded-4 border-0 shadow-lg">
+                        <i data-lucide="smartphone" class="h-10 w-10 text-primary mb-3" style="width: 2.5rem; height: 2.5rem;"></i>
+                        <h3 class="fs-4 fw-semibold text-white mb-3" data-lang="service_2_title">iOS App Development</h3>
+                        <p class="text-white-50" data-lang="service_2_desc">
+                            Pixel-perfect, native iOS apps using Swift & SwiftUI for the best performance and user experience.
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 3: UI/UX Design -->
+                <div class="col fade-in" style="transition-delay: 300ms;">
+                    <div class="card card-glass h-100 p-4 p-lg-5 rounded-4 border-0 shadow-lg">
+                        <i data-lucide="pen-tool" class="h-10 w-10 text-primary mb-3" style="width: 2.5rem; height: 2.5rem;"></i>
+                        <h3 class="fs-4 fw-semibold text-white mb-3" data-lang="service_3_title">UI/UX Design</h3>
+                        <p class="text-white-50" data-lang="service_3_desc">
+                            Intuitive and beautiful user interfaces designed in Figma that engage users and are a joy to use.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section (Bootstrap Grid & Flex) -->
+    <section id="about" class="py-5">
+        <div class="container py-4">
+            <!-- Bootstrap Grid with align-items-center -->
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 fade-in">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="A passionate team of developers and designers" class="rounded-4 shadow-lg img-fluid">
+                </div>
+                <div class="col-lg-6 fade-in" style="transition-delay: 150ms;">
+                    <span class="text-primary fw-semibold" data-lang="about_tag">About Codernest</span>
+                    <h2 class="display-5 fw-bold text-white my-3" data-lang="about_title">Who We Are</h2>
+                    <p class="fs-5 text-white-50 mb-4" data-lang="about_desc_1">
+                        We are a passionate team of developers and designers dedicated to building products that people love. With over a decade of combined experience, we specialize in crafting high-quality digital solutions.
+                    </p>
+                    <p class="fs-5 text-white-50" data-lang="about_desc_2">
+                        Our philosophy is simple: clean code, clear communication, and a commitment to quality. We partner with you from idea to launch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Showcase Section (Bootstrap Cards & Grid) -->
+    <section id="showcase" class="py-5 bg-navy">
+        <div class="container py-4 text-center">
+            <h2 class="display-5 fw-bold text-center text-white mb-5 fade-in" data-lang="showcase_title">Project Showcase</h2>
+            <!-- Bootstrap Grid -->
+            <div class="row g-4 row-cols-1 row-cols-md-3 mb-5">
+                <!-- Project 1 -->
+                <div class="col fade-in">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Screenshot of a SaaS Analytics Dashboard project" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_1_title">SaaS Analytics Dashboard</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_1_desc">A full-stack web app with a custom CMS and payment integration.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">Web</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">React</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col fade-in" style="transition-delay: 150ms;">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden">
+                        <img src="/public/img/#111317.png" alt="Screenshot of a Mobile Fitness App project" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_2_title">Fitness Tracker App</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_2_desc">A native iOS app with HealthKit integration and real-time tracking.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">iOS</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">SwiftUI</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col fade-in" style="transition-delay: 300ms;">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden">
+                        <img src="/public/img/#8A2BE2.png" alt="Screenshot of an AI Chatbot Interface project" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_3_title">AI Chatbot Interface</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_3_desc">A complex data visualization dashboard for a B2B SaaS product.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">Web</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/showcase.html" class="btn btn-outline-primary rounded-pill fw-medium px-5 py-3" data-lang="showcase_view_all">
+                View All Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- Pricing Section (Bootstrap Cards & Grid) -->
+    <section id="pricing" class="py-5">
+        <div class="container py-4">
+            <h2 class="display-5 fw-bold text-center text-white mb-3 fade-in" data-lang="pricing_title">Simple, Transparent Pricing</h2>
+            <p class="text-center text-white-50 col-lg-7 mx-auto mb-5 fade-in" style="transition-delay: 150ms;" data-lang="pricing_subtitle">
+                Choose the plan that's right for your project. No hidden fees.
+            </p>
+            <!-- Bootstrap Grid -->
+            <div class="row g-4 row-cols-1 row-cols-md-3 justify-content-center">
+                <!-- Plan 1: Starter -->
+                <div class="col-lg-4 fade-in">
+                    <div class="card bg-navy h-100 p-4 p-lg-5 rounded-4 shadow-lg border-0 d-flex flex-column">
+                        <h3 class="fs-4 fw-semibold text-white mb-2" data-lang="pricing_starter_title">Starter</h3>
+                        <p class="text-white-50 mb-4" data-lang="pricing_starter_desc">For simple websites or landing pages.</p>
+                        <p class="display-5 fw-bold text-white mb-4"><span data-lang="pricing_starter_price">$1,500</span> <span class="fs-6 fw-normal text-white-50">/ one-time</span></p>
+                        <ul class="list-unstyled mb-4 flex-grow-1">
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon text-success me-2"></i><span data-lang="pricing_starter_feature_1">Up to 5 Pages</span></li>
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon text-success me-2"></i><span data-lang="pricing_starter_feature_2">Responsive Design</span></li>
+                            <li class="d-flex align-items-center"><i data-lucide="check" class="check-icon text-success me-2"></i><span data-lang="pricing_starter_feature_3">Contact Form</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-secondary rounded-pill fw-semibold py-2" data-lang="pricing_get_started">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                <!-- Plan 2: Pro (Featured) -->
+                <div class="col-lg-4 fade-in featured-glow" style="transition-delay: 150ms;">
+                    <div class="card bg-primary h-100 p-4 p-lg-5 rounded-4 shadow-lg border-0 d-flex flex-column">
+                        <h3 class="fs-4 fw-semibold text-white mb-2" data-lang="pricing_pro_title">Pro App</h3>
+                        <p class="text-white-75 mb-4" data-lang="pricing_pro_desc">For custom web or iOS applications.</p>
+                        <p class="display-5 fw-bold text-white mb-4"><span data-lang="pricing_pro_price">$5,000+</span> <span class="fs-6 fw-normal text-white-75">/ project</span></p>
+                        <ul class="list-unstyled mb-4 flex-grow-1 text-white">
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon me-2"></i><span data-lang="pricing_pro_feature_1">Custom Web/iOS App</span></li>
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon me-2"></i><span data-lang="pricing_pro_feature_2">UI/UX Design Included</span></li>
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon me-2"></i><span data-lang="pricing_pro_feature_3">Database Integration</span></li>
+                            <li class="d-flex align-items-center"><i data-lucide="check" class="check-icon me-2"></i><span data-lang="pricing_pro_feature_4">3 Months Support</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-light text-primary rounded-pill fw-semibold py-2" data-lang="pricing_get_started">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                <!-- Plan 3: Enterprise -->
+                <div class="col-lg-4 fade-in" style="transition-delay: 300ms;">
+                    <div class="card bg-navy h-100 p-4 p-lg-5 rounded-4 shadow-lg border-0 d-flex flex-column">
+                        <h3 class="fs-4 fw-semibold text-white mb-2" data-lang="pricing_enterprise_title">Enterprise</h3>
+                        <p class="text-white-50 mb-4" data-lang="pricing_enterprise_desc">For large-scale, ongoing projects.</p>
+                        <p class="display-5 fw-bold text-white mb-4" data-lang="pricing_enterprise_price">Let's Talk</p>
+                        <ul class="list-unstyled mb-4 flex-grow-1">
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon text-success me-2"></i><span data-lang="pricing_enterprise_feature_1">Dedicated Team</span></li>
+                            <li class="d-flex align-items-center mb-2"><i data-lucide="check" class="check-icon text-success me-2"></i><span data-lang="pricing_enterprise_feature_2">Ongoing Support & SEO</span></li>
+                            <li class="d-flex align-items-center"><i data-lucide="check" class="check-icon text-success me-2"></i><span data-lang="pricing_enterprise_feature_3">Advanced Integrations</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-secondary rounded-pill fw-semibold py-2" data-lang="pricing_contact_us">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Trial Section (Bootstrap Grid) -->
+    <section id="trial" class="py-5 bg-navy">
+        <div class="container py-4">
+            <!-- Bootstrap Grid -->
+            <div class="row g-5 align-items-center justify-content-center">
+                <div class="col-lg-6 text-left fade-in">
+                    <h2 class="display-5 fw-bold text-white mb-4" data-lang="trial_title">Get a Free Trial</h2>
+                    <p class="text-white-50 fs-5 mb-4" data-lang="trial_subtitle">
+                        Not sure where to start? Send us your project details, and we'll provide a free consultation and a basic mockup or prototype. No commitment required.
+                    </p>
+                    <ul class="list-unstyled text-white-75 fs-5">
+                        <li class="d-flex align-items-start mb-3"><i data-lucide="message-circle" class="lucide-sm text-primary me-3 mt-1 flex-shrink-0"></i><span data-lang="trial_step_1">Tell us your idea, problem, or goal.</span></li>
+                        <li class="d-flex align-items-start mb-3"><i data-lucide="figma" class="lucide-sm text-primary me-3 mt-1 flex-shrink-0"></i><span data-lang="trial_step_2">We'll design a high-fidelity mockup.</span></li>
+                        <li class="d-flex align-items-start"><i data-lucide="presentation" class="lucide-sm text-primary me-3 mt-1 flex-shrink-0"></i><span data-lang="trial_step_3">We'll present it to you, for free.</span></li>
+                    </ul>
+                </div>
+                <!-- Bootstrap Form -->
+                <div class="col-lg-6 fade-in" style="transition-delay: 150ms;">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="bg-dark p-4 p-lg-5 rounded-4 border border-secondary-subtle text-left">
+                        
+                        <!-- 1. Add your Web3Forms Access Key here -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <!-- 2. Set a subject for the email you receive -->
+                        <input type="hidden" name="subject" value="New Free Trial Request from Codernest Website">
+                        
+                        <div class="mb-3">
+                            <label for="trial-name" class="form-label text-white-50" data-lang="form_your_name">Your Name</label>
+                            <input type="text" id="trial-name" name="name" class="form-control form-control-lg" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="trial-email" class="form-label text-white-50" data-lang="form_your_email">Your Email</label>
+                            <input type="email" id="trial-email" name="email" class="form-control form-control-lg" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="trial-message" class="form-label text-white-50" data-lang="form_project_details">Project Details</label>
+                            <textarea id="trial-message" name="project_details" rows="4" class="form-control form-control-lg" required data-lang-placeholder="trial_form_placeholder"></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-semibold fs-6 py-3 btn-primary-glow" data-lang="trial_form_button">
+                                Request Free Mockup
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Bootstrap Form) -->
+    <section id="contact" class="py-5">
+        <div class="container py-4 col-lg-7 mx-auto text-center">
+            <h2 class="display-5 fw-bold text-white mb-3 fade-in" data-lang="contact_title">Let's Build Something Great</h2>
+            <p class="text-white-50 fs-5 mb-4 fade-in" style="transition-delay: 150ms;" data-lang="contact_subtitle">
+                Have a project or a question? Get in touch for a free consultation.
+                We'll reply within 24 hours.
+            </p>
+            <!-- Bootstrap Form -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="bg-navy p-4 p-lg-5 rounded-4 border border-secondary-subtle text-left fade-in" style="transition-delay: 300ms;">
+                
+                <!-- 1. Add your Web3Forms Access Key here (can be the same one) -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <!-- 2. Set a different subject for this form -->
+                <input type="hidden" name="subject" value="New Contact Form Message from Codernest Website">
+                
+                <div class="mb-3">
+                    <label for="name" class="form-label text-white-50" data-lang="form_your_name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control form-control-lg" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white-50" data-lang="form_your_email">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label text-white-50" data-lang="form_project_details">Project Details</label>
+                    <textarea id="message" name="message" rows="5" class="form-control form-control-lg" required></textarea>
+                </div>
+                
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-semibold fs-6 px-5 py-3 btn-primary-glow" data-lang="contact_form_button">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (Bootstrap Grid) -->
+    <footer class="py-5 bg-navy border-top border-secondary-subtle">
+        <div class="container">
+            <!-- Bootstrap Grid -->
+            <div class="row g-5 mb-5">
+                <!-- Column 1: Branding -->
+                <div class="col-lg-3 col-md-6">
+                    <a href="#" class="fs-4 fw-bold text-white text-decoration-none">
+                        <span class="text-primary">Coder</span>Nest
+                    </a>
+                    <p class="text-white-50 mt-2 small" data-lang="footer_tagline">
+                        Building the future of web and mobile, one line of code at a time.
+                    </p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="fs-5 fw-semibold text-white mb-3" data-lang="footer_quick_links">Quick Links</h4>
+                    <ul class="list-unstyled d-grid gap-2">
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_services">Services</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_about">About Us</a></li>
+                        <li><a href="/showcase.html" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_showcase">Showcase</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="fs-5 fw-semibold text-white mb-3" data-lang="footer_support">Support</h4>
+                    <ul class="list-unstyled d-grid gap-2">
+                        <li><a href="#pricing" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_pricing">Pricing</a></li>
+                        <li><a href="#trial" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_free_trial">Free Trial</a></li>
+                        <li><a href="#contact" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="pricing_contact_us">Contact Us</a></li>
+                        <li><a href="/terms.html" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="footer_terms">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="footer_privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Location -->
+                <div class="col-lg-5 col-md-6">
+                    <h4 class="fs-5 fw-semibold text-white mb-3" data-lang="footer_location_title">Our Location</h4>
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.887029108143!2d90.3925383154019!3d23.75142828458877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bd552c2b3b%3A0x4e70f1178de92977!2sBashundhara%20City!5e0!3m2!1sen!2sbd!4v1678886752521!5m2!1sen!2sbd" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-4">
+                 <div class="d-flex">
+                        <h4 class="fs-5 fw-semibold text-white mb-3 me-3" data-lang="footer_follow">Follow Us</h4>
+                    <!-- Bootstrap Flex -->
+                        <a href="https://www.linkedin.com/in/md-mukit-hasan-bd/" target="_blank" aria-label="LinkedIn" class="text-white-50 hover:text-primary transition-colors me-3">
+                            <i data-lucide="linkedin" class="lucide-sm"></i>
+                        </a>
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter" class="text-white-50 hover:text-primary transition-colors me-3">
+                            <i data-lucide="twitter" class="lucide-sm"></i>
+                        </a>
+                        <a href="https://github.com/mukithasan232" target="_blank" aria-label="GitHub" class="text-white-50 hover:text-primary transition-colors">
+                            <i data-lucide="github" class="lucide-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary-subtle pt-4 text-center text-white-50 small">
+                <p data-lang="footer_copyright">&copy; 2025 Codernest Digital Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      ==================================================================
+      LIVE CHAT & AI HELP INTEGRATION (Tawk.to)
+      ==================================================================
+      1. Go to https://www.tawk.to/ and sign up for a free account.
+      2. In your Tawk.to dashboard, find your "Widget Code".
+      3. Copy the script they give you and paste it right here.
+      <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69124adfea0841195aa05bde/1j9nn8ufg';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+      <!-- START: Tawk.to Widget Placeholder -->
+      <!--
+      <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/YOUR_WIDGET_ID';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+      </script>
+      -->
+      <!-- END: Tawk.to Widget Placeholder -->
+
+    <!-- 5. Load Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- 6. Custom JavaScript (Icons & Animations) -->
+    <script>
+        // Wait for the DOM to be fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+            // Initialize Bootstrap Popovers
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+            
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error('Error: Lucide icons failed to load.');
+            }
+
+            // Close mobile menu when a nav link is clicked
+            const navLinks = document.querySelectorAll('#mobile-menu .nav-link');
+            const menuToggler = document.getElementById('mobile-menu');
+            const bsCollapse = new bootstrap.Collapse(menuToggler, {toggle: false});
+            
+            navLinks.forEach((link) => {
+                link.addEventListener('click', () => {
+                    // Check if the menu is open (visible)
+                    if (menuToggler.classList.contains('show')) {
+                        bsCollapse.hide();
+                    }
+                });
+            });
+
+            // Fade-in on scroll animation
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            
+            const appearOnScroll = new IntersectionObserver(function(
+                entries,
+                appearOnScroll
+            ) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('is-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            },
+            appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // Timezone Widget - Display current time
+            const timeDisplay = document.getElementById('time-display');
+            if (timeDisplay) {
+                function updateTime() {
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString('en-US', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: true
+                    });
+                    timeDisplay.textContent = timeString;
+                }
+                updateTime();
+                setInterval(updateTime, 1000);
+            }
+
+            // Weather Widget
+            const weatherWidget = document.getElementById('weather-widget');
+            if (weatherWidget) {
+                const weatherPopover = bootstrap.Popover.getInstance(weatherWidget);
+
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    
+                    // IMPORTANT: Replace with your own free API key from OpenWeatherMap
+                    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
+                    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+                    try {
+                        if (apiKey === 'YOUR_OPENWEATHERMAP_API_KEY') {
+                             weatherPopover.setContent({ '.popover-body': 'API Key needed' });
+                             return;
+                        }
+
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error('Weather data not available');
+                        
+                        const data = await response.json();
+                        const temperature = `${Math.round(data.main.temp)}°C`;
+                        const weatherDescription = data.weather[0].main;
+                        
+                        weatherPopover.setContent({ '.popover-body': `${temperature}, ${weatherDescription}` });
+
+                    } catch (error) {
+                        console.error("Weather fetch error:", error);
+                        weatherPopover.setContent({ '.popover-body': 'Could not fetch weather.' });
+                    }
+
+                }, (error) => {
+                    console.error("Geolocation error:", error);
+                    const popover = bootstrap.Popover.getInstance(weatherWidget);
+                    popover.setContent({ '.popover-body': 'Location access denied.' });
+                });
+            }
+        });
+
+        // Language loading script
+        async function setLanguage(lang) {
+            try {
+                const response = await fetch(`/lang/${lang}.json`);
+                if (!response.ok) {
+                    console.error(`Could not load language file: ${lang}.json`);
+                    return;
+                }
+                const langData = await response.json();
+                
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (langData[key]) el.innerHTML = langData[key];
+                });
+                document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-lang-placeholder');
+                    if (langData[key]) el.placeholder = langData[key];
+                });
+            } catch (error) {
+                console.error('Error setting language:', error);
+            }
+        }
+
+        // Function to change and save language
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            setLanguage(lang);
+        }
+
+        // Set default language on page load
+        document.addEventListener('DOMContentLoaded', () => setLanguage(localStorage.getItem('language') || 'en'));
+    </script>
+</body>
+</html>

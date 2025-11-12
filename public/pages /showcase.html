@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase - Web &amp; iOS Development | CoderNest Digital Solution</title>
+    
+    <meta name="description" content="Explore the portfolio of CoderNest Digital Solution, featuring custom web applications, iOS apps, and UI/UX designs. See our work and success stories.">
+    <!-- Dependencies (CSS, Fonts, Icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Base Styles from index.html */
+        :root {
+            --bs-primary: #8A2BE2;
+            --bs-primary-rgb: 138, 43, 226;
+            --bs-primary-hover: #9932CC;
+            --bs-secondary: #00C6FF;
+            --bs-body-font-family: 'Inter', sans-serif;
+            --bs-body-color: #e5e7eb;
+            --bs-body-bg: #111317;
+            --bs-tertiary-bg: #1a1d23;
+            --bs-border-color: #374151;
+        }
+        html { scroll-behavior: smooth; }
+        .font-monospace { font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'; }
+
+        /* Card Hover Animation */
+        .card-hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+
+        /* Header Style */
+        .header-blur {
+            background-color: rgba(17, 19, 23, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Footer Style */
+        .footer {
+            background-color: var(--bs-tertiary-bg);
+            border-top: 1px solid var(--bs-border-color);
+        }
+
+        /* Popover custom style */
+        .popover {
+            background-color: var(--bs-tertiary-bg);
+            border: 1px solid var(--bs-border-color);
+        }
+        .popover-header {
+            background-color: #111317;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="sticky-top shadow-sm header-blur">
+        <nav class="navbar navbar-expand-lg container" aria-label="Main Navigation">
+            <a href="/index.html" class="navbar-brand">
+                <img src="https://placehold.co/150x40/8A2BE2/FFFFFF?text=CoderNest&font=raleway" alt="CoderNest Logo" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i data-lucide="menu" class="text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mobile-menu">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a href="/index.html#services" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_services">Services</a></li>
+                    <li class="nav-item"><a href="/index.html#about" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_about">About Us</a></li>
+                    <li class="nav-item"><a href="/showcase.html" class="nav-link text-white fw-bold px-lg-3" data-lang="nav_showcase">Showcase</a></li>
+                    <li class="nav-item"><a href="/index.html#pricing" class="nav-link text-white-50 hover:text-primary transition-colors px-lg-3" data-lang="nav_pricing">Pricing</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i data-lucide="languages" class="lucide-sm"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('bn')">বাংলা</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="#" id="timezone-widget" class="nav-link text-white-50" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover" title="Your Timezone" data-bs-content="Loading...">
+                            <i data-lucide="globe-2" class="lucide-sm"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="#" id="weather-widget" class="nav-link text-white-50" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover" title="Your Temperature" data-bs-content="Loading...">
+                            <i data-lucide="thermometer" class="lucide-sm"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                        <a href="/login.html" class="btn btn-outline-primary rounded-pill fw-medium px-4 py-2" data-lang="nav_login">Login</a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                        <a href="/index.html#contact" class="btn btn-primary rounded-pill fw-medium px-4 py-2" data-lang="nav_get_quote">Get a Quote</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Showcase Section -->
+    <main class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-white" data-lang="showcase_page_title">Our Work</h1>
+                <p class="fs-5 text-white-50 col-lg-7 mx-auto" data-lang="showcase_page_subtitle">
+                    Here are some of the projects we're proud to have built. Each one is a testament to our commitment to quality and innovation.
+                </p>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="row g-4 g-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3">
+                
+                <!-- Project Card 1 -->
+                <div class="col">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden card-hover-lift">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Project Image" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_1_title">SaaS Analytics Dashboard</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_1_desc">A full-stack web app with a custom CMS and payment integration.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">Web</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="col">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden card-hover-lift">
+                        <img src="https://images.unsplash.com/photo-1584735935639-5292a42c092a?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Project Image" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_2_title">Fitness Tracker App</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_2_desc">A native iOS app with HealthKit integration and real-time tracking.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">iOS</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">SwiftUI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="col">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden card-hover-lift">
+                        <img src="https://images.unsplash.com/photo-1620712943543-2858200e94b1?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Project Image" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_3_title">AI Chatbot Interface</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_3_desc">A complex data visualization dashboard for a B2B SaaS product.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">Web</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more project cards here by copying the structure above -->
+                <!-- Example: Project Card 4 -->
+                <div class="col">
+                    <div class="card bg-dark text-light h-100 shadow-lg border-0 rounded-4 overflow-hidden card-hover-lift">
+                        <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Project Image" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h3 class="fs-5 fw-semibold text-white mb-2" data-lang="showcase_project_4_title">Modern E-commerce Platform</h3>
+                            <p class="text-white-50 small mb-3" data-lang="showcase_project_4_desc">A scalable online store with a custom backend and inventory management.</p>
+                            <span class="badge bg-primary bg-opacity-25 text-primary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase">Web</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary-emphasis rounded-pill px-3 py-1 font-monospace text-uppercase ms-2">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-5 footer">
+        <div class="container text-center text-white-50 small">
+            <div class="row g-5 mb-5">
+                <!-- Column 1: Branding -->
+                <div class="col-lg-3 col-md-6">
+                    <a href="#" class="fs-4 fw-bold text-white text-decoration-none">
+                        <span class="text-primary">Coder</span>Nest
+                    </a>
+                    <p class="text-white-50 mt-2 small" data-lang="footer_tagline">
+                        Building the future of web and mobile, one line of code at a time.
+                    </p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="fs-5 fw-semibold text-white mb-3" data-lang="footer_quick_links">Quick Links</h4>
+                    <ul class="list-unstyled d-grid gap-2">
+                        <li><a href="/index.html#services" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_services">Services</a></li>
+                        <li><a href="/index.html#about" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_about">About Us</a></li>
+                        <li><a href="/showcase.html" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_showcase">Showcase</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="fs-5 fw-semibold text-white mb-3" data-lang="footer_support">Support</h4>
+                    <ul class="list-unstyled d-grid gap-2">
+                        <li><a href="/index.html#pricing" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_pricing">Pricing</a></li>
+                        <li><a href="/index.html#trial" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="nav_free_trial">Free Trial</a></li>
+                        <li><a href="/index.html#contact" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="pricing_contact_us">Contact Us</a></li>
+                        <li><a href="/terms.html" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="footer_terms">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="text-white-50 text-decoration-none hover:text-primary transition-colors" data-lang="footer_privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Location -->
+                <div class="col-lg-5 col-md-6">
+                    <h4 class="fs-5 fw-semibold text-white mb-3" data-lang="footer_location_title">Our Location</h4>
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.887029108143!2d90.3925383154019!3d23.75142828458877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bd552c2b3b%3A0x4e70f1178de92977!2sBashundhara%20City!5e0!3m2!1sen!2sbd!4v1678886752521!5m2!1sen!2sbd" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-4">
+                 <div class="d-flex">
+                        <h4 class="fs-5 fw-semibold text-white mb-3 me-3" data-lang="footer_follow">Follow Us</h4>
+                        <!-- Bootstrap Flex -->
+                        <a href="https://linkedin.com/yourprofile" target="_blank" aria-label="LinkedIn" class="text-white-50 hover:text-primary transition-colors me-3">
+                            <i data-lucide="linkedin" class="lucide-sm"></i>
+                        </a>
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter" class="text-white-50 hover:text-primary transition-colors me-3">
+                            <i data-lucide="twitter" class="lucide-sm"></i>
+                        </a>
+                        <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub" class="text-white-50 hover:text-primary transition-colors">
+                            <i data-lucide="github" class="lucide-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            <div class="border-top border-secondary-subtle pt-4 text-center text-white-50 small">
+                <p data-lang="footer_copyright">&copy; 2025 Codernest Digital Solutions. All rights reserved.</p>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Language loading script
+        async function setLanguage(lang) {
+            try {
+                const response = await fetch(`/lang/${lang}.json`);
+                if (!response.ok) {
+                    console.error(`Could not load language file: ${lang}.json`);
+                    return;
+                }
+                const langData = await response.json();
+                
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (langData[key]) el.innerHTML = langData[key];
+                });
+                document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-lang-placeholder');
+                    if (langData[key]) el.placeholder = langData[key];
+                });
+            } catch (error) {
+                console.error('Error setting language:', error);
+            }
+        }
+
+        // Function to change and save language
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            setLanguage(lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Bootstrap Popovers
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            // Set default language on page load
+            setLanguage(localStorage.getItem('language') || 'en'); // Ensure language is set on load
+
+            // Timezone Widget
+            const timezoneWidget = document.getElementById('timezone-widget');
+            if (timezoneWidget) {
+                const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const popover = bootstrap.Popover.getInstance(timezoneWidget);
+                popover.setContent({ '.popover-body': userTimezone });
+            }
+
+            // Weather Widget
+            const weatherWidget = document.getElementById('weather-widget');
+            if (weatherWidget) {
+                const weatherPopover = bootstrap.Popover.getInstance(weatherWidget);
+
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    
+                    // IMPORTANT: Replace with your own free API key from OpenWeatherMap
+                    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
+                    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+                    try {
+                        if (apiKey === 'YOUR_OPENWEATHERMAP_API_KEY') {
+                             weatherPopover.setContent({ '.popover-body': 'API Key needed' });
+                             return;
+                        }
+
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error('Weather data not available');
+                        
+                        const data = await response.json();
+                        const temperature = `${Math.round(data.main.temp)}°C`;
+                        const weatherDescription = data.weather[0].main;
+                        
+                        weatherPopover.setContent({ '.popover-body': `${temperature}, ${weatherDescription}` });
+
+                    } catch (error) {
+                        console.error("Weather fetch error:", error);
+                        weatherPopover.setContent({ '.popover-body': 'Could not fetch weather.' });
+                    }
+
+                }, (error) => {
+                    console.error("Geolocation error:", error);
+                    weatherPopover.setContent({ '.popover-body': 'Location access denied.' });
+                });
+            }
+        });
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69124adfea0841195aa05bde/1j9nn8ufg';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>

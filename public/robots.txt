@@ -1,0 +1,10 @@
+User-agent: *
+
+# Disallow crawling of localization files
+Disallow: /lang/
+
+# Disallow crawling of login and signup pages
+Disallow: /login.html
+Disallow: /signup.html
+
+Sitemap: https://yourwebsite.com/sitemap.xml
